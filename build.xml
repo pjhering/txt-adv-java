@@ -1,0 +1,87 @@
+<project name="txt-adv-java"
+         default="main.package"
+         basedir=".">
+    <description>A Simple Text Adventure Game</description>
+
+    <property name="build" value="${basedir}/build"/>
+    <property name="jar.file" value="TxtAdv.jar"/>
+    <property name="main.class" value="org.petehering.txtadv.Main"/>
+    <property name="main.library" value="${basedir}/main/library"/>
+    <property name="main.resources" value="${basedir}/main/resources"/>
+    <property name="main.source" value="${basedir}/main/sources"/>
+    <property name="test.class" value="org.petehering.txtadv.MainTests"/>
+    <property name="test.library" value="${basedir}/test/library"/>
+    <property name="test.resources" value="${basedir}/test/resources"/>
+    <property name="test.source" value="${basedir}/test/sources"/>
+
+    <target name="prepare">
+        <mkdir dir="${build}"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build}"/>
+        <delete file="${jar.file}"/>
+        <delete file="Test${jar.file}"/>
+    </target>
+
+    <target name="main.compile" depends="prepare">
+        <javac srcdir="${main.source}"
+               destdir="${build}"
+               includeantruntime="false">
+            <classpath>
+                <fileset dir="${main.library}">
+                    <include name="*.jar"/>
+                </fileset>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="main.package" depends="clean, main.compile">
+        <jar destfile="${jar.file}">
+            <manifest>
+                <attribute name="Main-Class" value="${main.class}"/>
+            </manifest>
+            <fileset dir="${build}" includes="**/*"/>
+            <fileset dir="${main.resources}" includes="**/*"/>
+            <zipgroupfileset dir="${main.library}" includes="*.jar"/>
+        </jar>
+    </target>
+
+    <target name="test.compile" depends="main.compile">
+        <javac srcdir="${test.source}"
+               destdir="${build}"
+               includeantruntime="false">
+            <classpath>
+                <pathelement location="${build}"/>
+                <fileset dir="${main.library}" includes="*.jar"/>
+                <fileset dir="${test.library}" includes="*.jar"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="test.package" depends="clean, test.compile">
+        <jar destfile="Test${jar.file}">
+            <manifest>
+                <attribute name="Main-Class" value="${test.class}"/>
+            </manifest>
+            <fileset dir="${build}" includes="**/*"/>
+            <fileset dir="${main.resources}" includes="**/*"/>
+            <zipgroupfileset dir="${main.library}" includes="*.jar"/>
+            <fileset dir="${test.resources}" includes="**/*"/>
+            <zipgroupfileset dir="${test.library}" includes="*.jar"/>
+        </jar>
+    </target>
+
+    <target name="test.run" depends="test.compile">
+        <java classname="${test.class}">
+            <classpath>
+                <pathelement location="${build}"/>
+                <pathelement location="${main.resources}"/>
+                <pathelement location="${test.resources}"/>
+                <fileset dir="${main.library}" includes="*.jar"/>
+                <fileset dir="${test.library}" includes="*.jar"/>
+            </classpath>
+        </java>
+    </target>
+
+</project>

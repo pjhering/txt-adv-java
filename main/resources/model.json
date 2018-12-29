@@ -1,0 +1,348 @@
+{
+    "title":"A Simple Text Adventure Game",
+    "author":"Pete Hering",
+    "preamble":"enter '!' for help",
+    "commands":{
+        "org.petehering.txtadv.impl.Describe":{
+            "describe":"?",
+            "HELP":"describes an item in the current room or you inventory"
+        },
+        "org.petehering.txtadv.impl.Drop":{
+            "drop":"d",
+            "HELP":"removes an item from your inventory and leaves it in the current room"
+        },
+        "org.petehering.txtadv.impl.Go":{
+            "north":"n",
+            "east":"e",
+            "west":"w",
+            "south":"s",
+            "HELP":"moves you into the room in the specifed direction if possible"
+        },
+        "org.petehering.txtadv.impl.Help":{
+            "help":"!",
+            "HELP":"provides help for a one or more commands"
+        },
+        "org.petehering.txtadv.impl.Inventory":{
+            "inventory":"i",
+            "HELP":"prints a list of all items in your inventory"
+        },
+        "org.petehering.txtadv.impl.Look":{
+            "look":"l",
+            "HELP":"prints a description of the current room"
+        },
+        "org.petehering.txtadv.impl.QuestInfo":{
+            "quest":"",
+            "HELP":"prints information about the current quest"
+        },
+        "org.petehering.txtadv.impl.Quit":{
+            "quit":"q",
+            "exit":"x",
+            "HELP":"quits the game without saving it"
+        },
+        "org.petehering.txtadv.impl.Save":{
+            "save":"",
+            "HELP":"saves the game to a specifed file"
+        },
+        "org.petehering.txtadv.impl.Take":{
+            "take":"t",
+            "HELP":"takes an item from the current room and puts it in your inventory"
+        }
+    },
+    "quests":{
+        "org.petehering.txtadv.impl.Quest01":{
+            "name":"first quest",
+            "description":"walk around and do stuff"
+        },
+        "org.petehering.txtadv.impl.Quest02":{
+            "name":"second quest",
+            "description":"walk around and do stuff"
+        }
+    },
+    "rooms":{
+        "a1":{
+            "name":"panic room",
+            "description":"is a small space filled with monitors",
+            "east":{
+                "destination":"a2",
+                "description":"access panel",
+                "keyId":"001",
+                "closed":true,
+                "locked":true
+            },
+            "south":{
+                "destination":"b1",
+                "description":"access panel",
+                "keyId":"001",
+                "closed":true,
+                "locked":true
+            }
+        },
+        "a2":{
+            "name":"library",
+            "description":"wall's are lined with filled book cases",
+            "west":{
+                "destination":"a1",
+                "description":"access panel",
+                "closed":true,
+                "locked":true,
+                "hidden":true
+            },
+            "south":{
+                "destination":"b2",
+                "description":"passage"
+            }
+        },
+        "a3":{
+            "name":"china closet",
+            "description":"is filled with locked cabinets",
+            "south":{
+                "destination":"b3",
+                "description":"door",
+                "keyId":"002",
+                "closed":true,
+                "locked":true
+            }
+        },
+        "a4":{
+            "name":"pantry",
+            "description":"is filled with shelves of dry goods",
+            "south":{
+                "destination":"b4",
+                "description":"door",
+                "closed":true
+            }
+        },
+        "b1":{
+            "name":"master closet",
+            "description":"is spacious and full of clothes and shoes",
+            "north":{
+                "destination":"a1",
+                "description":"access panel",
+                "keyId":"001",
+                "closed":true,
+                "locked":true,
+                "hidden":true
+            },
+            "south":{
+                "destination":"c1",
+                "description":"sliding door",
+                "closed":true
+            }
+        },
+        "b2":{
+            "name":"living room",
+            "description":"has several arm chairs and a big sofa",
+            "north":{
+                "destination":"a2",
+                "description":"archway"
+            },
+            "east":{
+                "destination":"b3",
+                "description":"door",
+                "closed":true
+            },
+            "south":{
+                "destination":"c2",
+                "description":"archway"
+            }
+        },
+        "b3":{
+            "name":"dining room",
+            "description":"is dominated by a large oak table and eight heavy chairs",
+            "north":{
+                "destination":"a3",
+                "description":"door",
+                "keyId":"002",
+                "closed":true,
+                "locked":true
+            },
+            "west":{
+                "destination":"b2",
+                "description":"door",
+                "closed":true
+            },
+            "east":{
+                "destination":"b4",
+                "description":"door",
+                "closed":true
+            }
+        },
+        "b4":{
+            "name":"kitchen",
+            "description":"is clean and well organized",
+            "contents":[
+                {
+                    "name":"cigarettes",
+                    "description":"a pack of smokes",
+                    "properties":{
+                        "brand":"Marlboro",
+                        "count":"5"
+                    }
+                },
+                {
+                    "name":"lighter",
+                    "description":"a disposable cigarette lighter",
+                    "properties":{
+                        "quality":"cheap",
+                        "color":"black"
+                    }
+                }
+            ],
+            "north":{
+                "destination":"a4",
+                "description":"door",
+                "closed":true
+            },
+            "west":{
+                "destination":"b3",
+                "description":"door",
+                "closed":true
+            }
+        },
+        "c1":{
+            "name":"master bedroom",
+            "description":"is luxuriously furnished",
+            "north":{
+                "destination":"b1",
+                "description":"mirrored sliding door",
+                "closed":true
+            },
+            "east":{
+                "destination":"c2",
+                "description":"door",
+                "keyId":"003",
+                "closed":true,
+                "locked":true
+            }
+        },
+        "c2":{
+            "name":"north hallway",
+            "description":"is empty except for a large oil painting on the wall",
+            "north":{
+                "destination":"b2",
+                "description":"archway"
+            },
+            "west":{
+                "destination":"c1",
+                "description":"door",
+                "keyId":"003",
+                "closed":true,
+                "locked":true
+            },
+            "east":{
+                "destination":"c3",
+                "description":"door",
+                "keyId":"004",
+                "closed":true,
+                "locked":true
+            },
+            "south":{
+                "destination":"d2",
+                "description":"archway"
+            }
+        },
+        "c3":{
+            "name":"north guest bedroom",
+            "description":"looks comfortable",
+            "west":{
+                "destination":"c2",
+                "description":"door",
+                "keyId":"004",
+                "closed":true,
+                "locked":true
+            },
+            "east":{
+                "destination":"c4",
+                "description":"door",
+                "closed":true
+            }
+        },
+        "c4":{
+            "name":"north guest closet",
+            "description":"is empty",
+            "west":{
+                "destination":"c3",
+                "description":"door",
+                "closed":true
+            }
+        },
+        "d1":{
+            "name":"water closet",
+            "description":"is small but clean",
+            "east":{
+                "destination":"d2",
+                "description":"door",
+                "keyId":"005",
+                "closed":true,
+                "locked":true
+            }
+        },
+        "d2":{
+            "name":"south hallway",
+            "description":"is empty except for a granite bust on a pedestal",
+            "north":{
+                "destination":"c2",
+                "description":"archway"
+            },
+            "west":{
+                "destination":"d1",
+                "description":"door",
+                "keyId":"005",
+                "closed":true,
+                "locked":true
+            },
+            "east":{
+                "destination":"d3",
+                "description":"door",
+                "keyId":"006",
+                "closed":true,
+                "locked":true
+            }
+        },
+        "d3":{
+            "name":"south guest bedroom",
+            "description":"looks comfortable",
+            "west":{
+                "destination":"d2",
+                "description":"door",
+                "keyId":"006",
+                "closed":true,
+                "locked":true
+            },
+            "east":{
+                "destination":"d4",
+                "description":"door",
+                "closed":true
+            }
+        },
+        "d4":{
+            "name":"south guest closet",
+            "description":"is empty",
+            "west":{
+                "destination":"d3",
+                "description":"door",
+                "closed":true
+            }
+        }
+    },
+    "player":{
+        "location":"b4",
+        "properties":{},
+        "inventory":[
+            {
+                "name":"cigarettes",
+                "description":"a small box of hand-rolled smokes",
+                "properties":{
+                    "count":"15"
+                }
+            },
+            {
+                "name":"lighter",
+                "description":"a silver Zippo lighter",
+                "properties":{
+                    "weight":"1 oz."
+                }
+            }
+        ]
+    }
+}
