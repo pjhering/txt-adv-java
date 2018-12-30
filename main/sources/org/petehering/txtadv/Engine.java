@@ -16,8 +16,9 @@ public class Engine
         setModel(model);
     }
 
-    public String handle(String request)
+    public List<String> handle(String request)
     {
+        List<String> response = new ArrayList<>();
         if(request != null)
         {
             request = request.trim();
@@ -32,7 +33,7 @@ public class Engine
 
                     if(cmd != null)
                     {
-                        String response = cmd.execute(model, args);
+                        response.addAll(cmd.execute(model, args));
 
                         if(quests.size() > 0)
                         {
@@ -40,21 +41,19 @@ public class Engine
 
                             if(quests.get(0).isComplete())
                             {
-                                response += "\n" + quests.remove(0).getName() + " is complete";
+                                response.add(quests.remove(0).getName() + " is complete");
                             }
                         }
-
-                        return response;
                     }
                     else
                     {
-                        return "undefined: " + args[0];
+                        response.add("undefined: " + args[0]);
                     }
                 }
             }
         }
 
-        return "";
+        return response;
     }
 
     public void setModel(Model model) throws Exception
