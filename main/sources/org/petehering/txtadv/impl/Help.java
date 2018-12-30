@@ -1,11 +1,13 @@
 package org.petehering.txtadv.impl;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import org.petehering.txtadv.Command;
 import org.petehering.txtadv.Model;
 
-public class Help implements Command // TODO: UI_Agnostic
+public class Help implements Command
 {
     private Map<String, CmdInfo> cmdInfoMap;
 
@@ -14,54 +16,45 @@ public class Help implements Command // TODO: UI_Agnostic
     }
 
     @Override
-    public String execute (Model model, String[] args)
+    public List<String> execute (Model model, String[] args)
     {
         if(cmdInfoMap == null)
         {
             build(model.getCommands());
         }
 
+        List<String> response = new ArrayList<>();
+
         if(args.length == 1) // list all available commands
         {
-            StringBuilder sb = new StringBuilder()
-                .append("available commands:\n");
+            response.add("available commands:");
 
             for(String key : cmdInfoMap.keySet())
             {
                 if(!key.equals(cmdInfoMap.get(key).getShortcut()))
                 {
-                    sb.append("  ")
-                      .append(key)
-                      .append(" [")
-                      .append(cmdInfoMap.get(key).getShortcut())
-                      .append("]\n");
+                    response.add("  " + key + " [" + cmdInfoMap.get(key).getShortcut() + "]");
                 }
             }
-
-            return sb.toString();
         }
         else //  list help text for each command
         {
-            StringBuilder sb = new StringBuilder();
-
             for(int i = 1; i < args.length; i++)
             {
                 CmdInfo info = cmdInfoMap.get(args[i]);
 
                 if(info != null)
                 {
-                    sb.append(info.toString())
-                      .append("\n");
+                    response.add(info.toString());
                 }
                 else
                 {
-                    sb.append(args[i])
-                      .append(" - undefined\n");
+                      response.add(" - undefined");
                 }
             }
-
-            return sb.toString();
         }
+
+        return response;
     }
 
     private void build(Map<String, Map<String, String>> helpMap)
