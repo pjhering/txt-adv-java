@@ -1,6 +1,8 @@
 package org.petehering.txtadv.impl;
 
 import static java.lang.System.out;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -10,10 +12,10 @@ import org.petehering.txtadv.Model;
 import org.petehering.txtadv.Player;
 import org.petehering.txtadv.Room;
 
-public class Describe implements Command // TODO: UI_Agnostic
+public class Describe implements Command
 {
     @Override
-    public String execute (Model model, String[] args)
+    public List<String> execute (Model model, String[] args)
     {
         Player p = model.getPlayer();
         Room r = model.getRooms().get(p.getLocation());
@@ -46,47 +48,37 @@ public class Describe implements Command // TODO: UI_Agnostic
             }
         }
 
-        StringBuilder sb = new StringBuilder();
+        List<String> response = new ArrayList<>();
         boolean found = false;
 
         if(!contents.isEmpty())
         {
             found = true;
-
-            sb.append("in the ")
-              .append(r.getName())
-              .append(":\n");
+            response.add("in the " + r.getName() + ":");
 
             for(Item it : contents)
             {
-                sb.append("  ")
-                  .append(describe(it))
-                  .append("\n");
+                response.add("  " + describe(it));
             }
         }
 
         if(!inventory.isEmpty())
         {
             found = true;
-
-            sb.append("in your inventory:\n");
+            response.add("in your inventory:");
 
             for(Item it : inventory)
             {
-                sb.append("  ")
-                  .append(describe(it))
-                  .append("\n");
+                response.add("  " + describe(it));
             }
         }
 
-        if(found)
+        if(!found)
         {
-            return sb.toString();
+            response.add("no items found");
         }
-        else
-        {
-            return "no items found";
-        }
+
+        return response;
     }
 
     private String describe(Item i)
