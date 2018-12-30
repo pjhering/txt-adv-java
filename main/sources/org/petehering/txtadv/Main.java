@@ -3,6 +3,7 @@ package org.petehering.txtadv;
 import com.google.gson.Gson;
 import static java.lang.System.exit;
 import static java.lang.System.out;
+import java.util.List;
 import java.io.Console;
 import java.io.File;
 import java.io.FileReader;
@@ -38,8 +39,11 @@ public class Main
                 {
                     out.print(">");
                     String request = console.readLine();
-                    String response = engine.handle(request);
-                    out.println(response);
+                    List<String> response = engine.handle(request);
+                    for(String line : response)
+                    {
+                        out.println(line);
+                    }
                     out.println();
                 }
             }
