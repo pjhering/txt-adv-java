@@ -7,7 +7,7 @@ import java.io.FileWriter;
 import org.petehering.txtadv.Command;
 import org.petehering.txtadv.Model;
 
-public class Save implements Command
+public class Save implements Command // TODO: UI_Agnostic
 {
     @Override
     public String execute (Model model, String[] args)

@@ -8,7 +8,7 @@ import org.petehering.txtadv.Model;
 import org.petehering.txtadv.Player;
 import org.petehering.txtadv.Room;
 
-public class Go implements Command
+public class Go implements Command // TODO: UI_Agnostic
 {
     @Override
     public String execute (Model model, String[] args)

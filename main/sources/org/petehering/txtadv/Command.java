@@ -1,6 +1,8 @@
 package org.petehering.txtadv;
 
+import java.util.List;
+
 public interface Command
 {
-    public String execute (Model model, String[] args);
+    public List<String> execute (Model model, String[] args);
 }

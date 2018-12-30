@@ -8,7 +8,7 @@ import org.petehering.txtadv.Item;
 import org.petehering.txtadv.Model;
 import org.petehering.txtadv.Player;
 
-public class Inventory implements Command
+public class Inventory implements Command // TODO: UI_Agnostic
 {
     @Override
     public String execute (Model model, String[] args)

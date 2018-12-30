@@ -4,7 +4,7 @@ import java.util.Map;
 import org.petehering.txtadv.Command;
 import org.petehering.txtadv.Model;
 
-public class QuestInfo implements Command
+public class QuestInfo implements Command // TODO: UI_Agnostic
 {
     @Override
     public String execute (Model model, String[] args)

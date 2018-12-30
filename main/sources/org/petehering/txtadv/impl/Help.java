@@ -5,7 +5,7 @@ import java.util.TreeMap;
 import org.petehering.txtadv.Command;
 import org.petehering.txtadv.Model;
 
-public class Help implements Command
+public class Help implements Command // TODO: UI_Agnostic
 {
     private Map<String, CmdInfo> cmdInfoMap;
 
