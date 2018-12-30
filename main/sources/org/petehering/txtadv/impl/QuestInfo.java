@@ -1,14 +1,17 @@
 package org.petehering.txtadv.impl;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import org.petehering.txtadv.Command;
 import org.petehering.txtadv.Model;
 
-public class QuestInfo implements Command // TODO: UI_Agnostic
+public class QuestInfo implements Command
 {
     @Override
-    public String execute (Model model, String[] args)
+    public List<String> execute (Model model, String[] args)
     {
+        List<String> response = new ArrayList<>();
         String s = model.getCurrentQuest();
 
         if(s != null && !s.equals(""))
@@ -23,10 +26,14 @@ public class QuestInfo implements Command // TODO: UI_Agnostic
                 name = (name == null || name.equals(""))? "unnamed" : name;
                 desc = (desc == null || desc.equals(""))? "no description available" : desc;
 
-                return name + "... " + desc;
+                response.add(name + "... " + desc);
             }
         }
+        else
+        {
+            response.add("no information is available");
+        }
 
-        return "no information is available";
+        return response;
     }
 }
