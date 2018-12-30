@@ -186,6 +186,13 @@
                         "quality":"cheap",
                         "color":"black"
                     }
+                },
+                {
+                    "name":"key",
+                    "description":"marked 'china'",
+                    "properties":{
+                        "keyId":"002"
+                    }
                 }
             ],
             "north":{
