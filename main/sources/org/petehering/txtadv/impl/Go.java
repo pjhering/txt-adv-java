@@ -1,5 +1,7 @@
 package org.petehering.txtadv.impl;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import org.petehering.txtadv.Command;
 import org.petehering.txtadv.Door;
@@ -8,32 +10,41 @@ import org.petehering.txtadv.Model;
 import org.petehering.txtadv.Player;
 import org.petehering.txtadv.Room;
 
-public class Go implements Command // TODO: UI_Agnostic
+public class Go implements Command
 {
     @Override
-    public String execute (Model model, String[] args)
+    public List<String> execute (Model model, String[] args)
     {
+        List<String> response = new ArrayList<>();
+
         switch(args[0])
         {
             case "north":
             case "n":
-                return goNorth(model, args);
+                response.add(goNorth(model, args));
+                break;
 
             case "south":
             case "s":
-                return goSouth(model, args);
+                response.add(goSouth(model, args));
+                break;
 
             case "west":
             case "w":
-                return goWest(model, args);
+                response.add(goWest(model, args));
+                break;
 
             case "east":
             case "e":
-                return goEast(model, args);
+                response.add(goEast(model, args));
+                break;
 
             default:
-                return "that's not a direction";
+                response.add("that's not a direction");
+                break;
         }
+
+        return response;
     }
 
     private String goNorth(Model model, String[] args)
