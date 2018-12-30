@@ -1,5 +1,7 @@
 package org.petehering.txtadv.impl;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -8,46 +10,45 @@ import org.petehering.txtadv.Item;
 import org.petehering.txtadv.Model;
 import org.petehering.txtadv.Player;
 
-public class Inventory implements Command // TODO: UI_Agnostic
+public class Inventory implements Command
 {
     @Override
-    public String execute (Model model, String[] args)
+    public List<String> execute (Model model, String[] args)
     {
+        List<String> response = new ArrayList<>();
         Player p = model.getPlayer();
         Set<Item> i = p.getInventory();
 
         if(i.isEmpty())
         {
-            return "there is nothing in your inventory";
+            response.add("there is nothing in your inventory");
         }
-
-        Map<String, Integer> count = new TreeMap<>();
-
-        for(Item it : i)
+        else
         {
-            String name = it.getName();
+            Map<String, Integer> count = new TreeMap<>();
 
-            if(!count.containsKey(name))
+            for(Item it : i)
             {
-                count.put(name, 1);
+                String name = it.getName();
+
+                if(!count.containsKey(name))
+                {
+                    count.put(name, 1);
+                }
+                else
+                {
+                    count.put(name, count.get(name) + 1);
+                }
             }
-            else
+
+            response.add("you have:");
+
+            for(String name : count.keySet())
             {
-                count.put(name, count.get(name) + 1);
+                response.add("  " + count.get(name) + " " + name);
             }
         }
 
-        StringBuilder sb = new StringBuilder("you have:\n");
-
-        for(String name : count.keySet())
-        {
-            sb.append("  ")
-              .append(count.get(name))
-              .append(" ")
-              .append(name)
-              .append("\n");
-        }
-
-        return sb.toString();
+        return response;
     }
 }
