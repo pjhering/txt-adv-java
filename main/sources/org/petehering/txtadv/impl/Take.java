@@ -1,5 +1,7 @@
 package org.petehering.txtadv.impl;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.HashSet;
 import java.util.Set;
 import org.petehering.txtadv.Command;
@@ -8,60 +10,61 @@ import org.petehering.txtadv.Model;
 import org.petehering.txtadv.Player;
 import org.petehering.txtadv.Room;
 
-public class Take implements Command // TODO: UI_Agnostic
+public class Take implements Command
 {
     @Override
-    public String execute (Model model, String[] args)
+    public List<String> execute (Model model, String[] args)
     {
+        List<String> response = new ArrayList<>();
+
         if(args.length < 2)
         {
-            return "take what?";
+            response.add("take what?");
         }
-
-        Player p = model.getPlayer();
-        Room r = model.getRooms().get(p.getLocation());
-        Set<Item> contents = r.getContents();
-        Set<Item> taken = new HashSet<>();
-
-        OUTER:
-        for(int i = 1; i < args.length; i++)
+        else
         {
-            INNER:
-            for(Item item : contents)
+            Player p = model.getPlayer();
+            Room r = model.getRooms().get(p.getLocation());
+            Set<Item> contents = r.getContents();
+            Set<Item> taken = new HashSet<>();
+
+            OUTER:
+            for(int i = 1; i < args.length; i++)
             {
-                if(item.getName().equals(args[i])) // found a match
+                INNER:
+                for(Item item : contents)
                 {
-                    if(!taken.contains(item)) // not already taken
+                    if(item.getName().equals(args[i])) // found a match
                     {
-                        taken.add(item);
-                        break INNER;
+                        if(!taken.contains(item)) // not already taken
+                        {
+                            taken.add(item);
+                            break INNER;
+                        }
                     }
+                }
+            }
+
+            response.add("you took:");
+
+            if(taken.isEmpty())
+            {
+                response.add("  nothing");
+            }
+            else
+            {
+                Set<Item> inventory = p.getInventory();
+
+                for(Item it : taken)
+                {
+                    inventory.add(it);
+                    contents.remove(it);
+
+                    response.add("  " + it.getName());
                 }
             }
         }
 
-        StringBuilder sb = new StringBuilder()
-            .append("you took:\n");
-
-        if(taken.isEmpty())
-        {
-            sb.append("  nothing\n");
-        }
-        else
-        {
-            Set<Item> inventory = p.getInventory();
-
-            for(Item it : taken)
-            {
-                inventory.add(it);
-                contents.remove(it);
-
-                sb.append("  ")
-                  .append(it.getName())
-                  .append("\n");
-            }
-        }
-
-        return sb.toString();
+        return response;
     }
 }
