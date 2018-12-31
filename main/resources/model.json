@@ -39,8 +39,8 @@
             "HELP":"makes a new item from items in your inventory"
         },
         "org.petehering.txtadv.impl.PutIn":{
-            "put":"",
-            "HELP":"puts specified items in a specified container"
+            "put":"p",
+            "HELP":"put item in container, removing it from your inventory"
         },
         "org.petehering.txtadv.impl.QuestInfo":{
             "quest":"",
@@ -52,8 +52,8 @@
             "HELP":"quits the game without saving it"
         },
         "org.petehering.txtadv.impl.RemoveFrom":{
-            "remove":"",
-            "HELP":"removes specified items from a specifed container and adds them to your inventory"
+            "remove":"r",
+            "HELP":"remove item from container, placing it in your inventory"
         },
         "org.petehering.txtadv.impl.Save":{
             "save":"",
