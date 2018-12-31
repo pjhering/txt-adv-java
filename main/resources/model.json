@@ -48,7 +48,6 @@
         },
         "org.petehering.txtadv.impl.Quit":{
             "quit":"q",
-            "exit":"x",
             "HELP":"quits the game without saving it"
         },
         "org.petehering.txtadv.impl.RemoveFrom":{
