@@ -50,6 +50,10 @@
             "quit":"q",
             "HELP":"quits the game without saving it"
         },
+        "org.petehering.txtadv.impl.RecipeInfo":{
+            "recipe":"",
+            "HELP":"prints the ingredients for a specifed item"
+        },
         "org.petehering.txtadv.impl.RemoveFrom":{
             "remove":"r",
             "HELP":"remove item from container, placing it in your inventory"
@@ -75,12 +79,12 @@
     },
     "recipes":{
             "sandwich":{
-                "input":{
+                "ingredients":{
                     "bread":1,
                     "peanutbutter":1,
                     "jelly":1
                 },
-                "output":{
+                "product":{
                     "description":"a delicious looking meal",
                     "properties":{
                         "calories":300
@@ -88,12 +92,12 @@
                 }
             },
             "salad":{
-                "input":{
+                "ingredients":{
                     "lettuce":1,
                     "tomato":1,
                     "onion":1
                 },
-                "output":{
+                "product":{
                     "description":"a healthy meal",
                     "properties":{
                         "calories":50
