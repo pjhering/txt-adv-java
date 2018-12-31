@@ -2,6 +2,7 @@ package org.petehering.txtadv;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Item implements Comparable<Item>
 {
@@ -11,6 +12,8 @@ public class Item implements Comparable<Item>
     private String name;
     private String description;
     private Map<String, String> properties;
+    private boolean fixture;
+    private Set<Item> contents;
 
     public Item()
     {
@@ -27,7 +30,7 @@ public class Item implements Comparable<Item>
 
     // this is needed to:
     //   alphabetize the items
-    //   ensure items with the same name are added to sets 
+    //   ensure items with the same name are added to sets
     @Override
     public int compareTo(Item that)
     {
@@ -78,5 +81,30 @@ public class Item implements Comparable<Item>
     public Map<String, String> getProperties()
     {
         return properties;
+    }
+
+    public void setFixture(boolean value)
+    {
+        this.fixture = value;
+    }
+
+    public boolean getFixture()
+    {
+        return fixture;
+    }
+
+    public void setContents(Set<Item> value)
+    {
+        this.contents = value;
+    }
+
+    public Set<Item> getContents()
+    {
+        return contents;
+    }
+
+    public boolean isContainer()
+    {
+        return contents != null;
     }
 }

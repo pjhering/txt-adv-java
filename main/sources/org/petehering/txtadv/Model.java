@@ -13,6 +13,7 @@ public class Model
     private Map<String, Map<String, String>> commands;
     private Map<String, Map<String, String>> quests;
     private String currentQuest;
+    private Map<String, Recipe> recipes;
     private Map<String, Room> rooms;
     private Player player;
     private boolean quit;
@@ -25,6 +26,7 @@ public class Model
         this.commands = new HashMap<>();
         this.quests = new HashMap<>();
         this.currentQuest = "";
+        this.recipes = new HashMap<>();
         this.rooms = new HashMap<>();
         this.player = new Player();
         this.quit = false;
@@ -88,6 +90,16 @@ public class Model
     public String getCurrentQuest()
     {
         return currentQuest;
+    }
+
+    public void setRecipes(Map<String, Recipe> value)
+    {
+        this.recipes = value;
+    }
+
+    public Map<String, Recipe> getRecipes()
+    {
+        return recipes;
     }
 
     public void setRooms(Map<String, Room> value)

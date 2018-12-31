@@ -38,8 +38,15 @@ public class Take implements Command
                     {
                         if(!taken.contains(item)) // not already taken
                         {
-                            taken.add(item);
-                            break INNER;
+                            if(!item.getFixture())
+                            {
+                                taken.add(item);
+                                break INNER;
+                            }
+                            else
+                            {
+                                response.add("  the " + item.getName() + " can not be taken");
+                            }
                         }
                     }
                 }

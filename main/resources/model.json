@@ -3,6 +3,10 @@
     "author":"Pete Hering",
     "preamble":"enter '!' for help",
     "commands":{
+        "org.petehering.txtadv.impl.Contents":{
+            "contents":"",
+            "HELP":"lists the content of a container"
+        },
         "org.petehering.txtadv.impl.Describe":{
             "describe":"?",
             "HELP":"describes an item in the current room or you inventory"
@@ -30,6 +34,14 @@
             "look":"l",
             "HELP":"prints a description of the current room"
         },
+        "org.petehering.txtadv.impl.Make":{
+            "make":"m",
+            "HELP":"makes a new item from items in your inventory"
+        },
+        "org.petehering.txtadv.impl.PutIn":{
+            "put":"",
+            "HELP":"puts specified items in a specified container"
+        },
         "org.petehering.txtadv.impl.QuestInfo":{
             "quest":"",
             "HELP":"prints information about the current quest"
@@ -38,6 +50,10 @@
             "quit":"q",
             "exit":"x",
             "HELP":"quits the game without saving it"
+        },
+        "org.petehering.txtadv.impl.RemoveFrom":{
+            "remove":"",
+            "HELP":"removes specified items from a specifed container and adds them to your inventory"
         },
         "org.petehering.txtadv.impl.Save":{
             "save":"",
@@ -57,6 +73,34 @@
             "name":"second quest",
             "description":"walk around and do stuff"
         }
+    },
+    "recipes":{
+            "sandwich":{
+                "input":{
+                    "bread":1,
+                    "peanutbutter":1,
+                    "jelly":1
+                },
+                "output":{
+                    "description":"a delicious looking meal",
+                    "properties":{
+                        "calories":300
+                    }
+                }
+            },
+            "salad":{
+                "input":{
+                    "lettuce":1,
+                    "tomato":1,
+                    "onion":1
+                },
+                "output":{
+                    "description":"a healthy meal",
+                    "properties":{
+                        "calories":50
+                    }
+                }
+            }
     },
     "rooms":{
         "a1":{
@@ -106,6 +150,23 @@
         "a4":{
             "name":"pantry",
             "description":"is filled with shelves of dry goods",
+            "contents":[
+                {
+                    "name":"cabinet",
+                    "description":"",
+                    "fixture":true,
+                    "contents":[
+                        {
+                            "name":"peanutbutter",
+                            "description":"creamy"
+                        },
+                        {
+                            "name":"bread",
+                            "description":"whole wheat"
+                        }
+                    ]
+                }
+            ],
             "south":{
                 "destination":"b4",
                 "description":"door",
@@ -171,6 +232,48 @@
             "name":"kitchen",
             "description":"is clean and well organized",
             "contents":[
+                {
+                    "name":"note",
+                    "description":"yellow sticky note",
+                    "fixture":true,
+                    "properties":{
+                        "text":"Make yourself a sandwich"
+                    }
+                },
+                {
+                    "name":"breadbox",
+                    "description":"a tin box",
+                    "fixture":true,
+                    "contents":[
+                        {
+                            "name":"bread",
+                            "description":"plain white"
+                        }
+                    ]
+                },
+                {
+                    "name":"icebox",
+                    "description":"a refridgerator",
+                    "fixture":true,
+                    "contents":[
+                        {
+                            "name":"lettuce",
+                            "description":"romaine"
+                        },
+                        {
+                            "name":"tomato",
+                            "description":"beefsteak"
+                        },
+                        {
+                            "name":"onion",
+                            "description":"white"
+                        },
+                        {
+                            "name":"jelly",
+                            "description":"grape"
+                        }
+                    ]
+                },
                 {
                     "name":"cigarettes",
                     "description":"a pack of smokes",
