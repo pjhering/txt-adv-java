@@ -1,4 +1,4 @@
-package org.petehering.txtadv.impl;
+package org.petehering.txtadv.core;
 
 public class CmdInfo implements Comparable<CmdInfo>
 {

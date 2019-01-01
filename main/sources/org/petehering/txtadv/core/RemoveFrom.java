@@ -1,4 +1,4 @@
-package org.petehering.txtadv.impl;
+package org.petehering.txtadv.core;
 
 import java.util.ArrayList;
 import java.util.HashSet;

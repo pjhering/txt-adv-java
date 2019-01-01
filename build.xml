@@ -13,6 +13,8 @@
     <property name="test.library" value="${basedir}/test/library"/>
     <property name="test.resources" value="${basedir}/test/resources"/>
     <property name="test.source" value="${basedir}/test/sources"/>
+    <property name="dungeon.jar" value="Dungeon.jar"/>
+    <property name="dungeon.main" value="org.petehering.dungeon.Start"/>
 
     <target name="prepare">
         <mkdir dir="${build}"/>
@@ -21,7 +23,19 @@
     <target name="clean">
         <delete dir="${build}"/>
         <delete file="${jar.file}"/>
+        <delete file="${dungeon.jar}"/>
         <delete file="Test${jar.file}"/>
+    </target>
+
+    <target name="dungeon" depends="main.compile">
+        <jar destfile="${dungeon.jar}">
+            <manifest>
+                <attribute name="Main-Class" value="${dungeon.main}"/>
+            </manifest>
+            <fileset dir="${build}" includes="**/*"/>
+            <fileset dir="${main.resources}" includes="**/dungeon.*"/>
+            <zipgroupfileset dir="${main.library}" includes="*.jar"/>
+        </jar>
     </target>
 
     <target name="main.compile" depends="prepare">

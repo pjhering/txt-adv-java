@@ -1,8 +1,8 @@
-package org.petehering.txtadv.impl;
+package org.petehering.txtadv.core;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
 import org.petehering.txtadv.Command;
 import org.petehering.txtadv.Item;
@@ -10,7 +10,7 @@ import org.petehering.txtadv.Model;
 import org.petehering.txtadv.Player;
 import org.petehering.txtadv.Room;
 
-public class Drop implements Command
+public class Take implements Command
 {
     @Override
     public List<String> execute (Model model, String[] args)
@@ -19,46 +19,53 @@ public class Drop implements Command
 
         if(args.length < 2)
         {
-            response.add("drop what?");
+            response.add("take what?");
         }
         else
         {
             Player p = model.getPlayer();
             Room r = model.getRooms().get(p.getLocation());
-            Set<Item> inventory = p.getInventory();
-            Set<Item> dropped = new HashSet<>();
+            Set<Item> contents = r.getContents();
+            Set<Item> taken = new HashSet<>();
 
             OUTER:
             for(int i = 1; i < args.length; i++)
             {
                 INNER:
-                for(Item item : inventory)
+                for(Item item : contents)
                 {
                     if(item.getName().equals(args[i])) // found a match
                     {
-                        if(!dropped.contains(item)) // not already dropped
+                        if(!taken.contains(item)) // not already taken
                         {
-                            dropped.add(item);
-                            break INNER;
+                            if(!item.getFixture())
+                            {
+                                taken.add(item);
+                                break INNER;
+                            }
+                            else
+                            {
+                                response.add("  the " + item.getName() + " can not be taken");
+                            }
                         }
                     }
                 }
             }
 
-            response.add("you dropped:");
+            response.add("you took:");
 
-            if(dropped.isEmpty())
+            if(taken.isEmpty())
             {
                 response.add("  nothing");
             }
             else
             {
-                Set<Item> contents = r.getContents();
+                Set<Item> inventory = p.getInventory();
 
-                for(Item it : dropped)
+                for(Item it : taken)
                 {
-                    contents.add(it);
-                    inventory.remove(it);
+                    inventory.add(it);
+                    contents.remove(it);
 
                     response.add("  " + it.getName());
                 }
