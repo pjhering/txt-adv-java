@@ -43,7 +43,7 @@ public class RecipeInfo implements Command
             if(!names.isEmpty())
             {
                 response.add("available recipes:");
-                
+
                 for(String name : names)
                 {
                     response.add("  " + name);
