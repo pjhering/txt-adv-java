@@ -38,7 +38,21 @@ public class RecipeInfo implements Command
         }
         else
         {
-            response.add("recipe for what?");
+            Set<String> names = model.getRecipes().keySet();
+
+            if(!names.isEmpty())
+            {
+                response.add("available recipes:");
+                
+                for(String name : names)
+                {
+                    response.add("  " + name);
+                }
+            }
+            else
+            {
+                response.add("there are no recipes available");
+            }
         }
 
         return response;
