@@ -2,6 +2,7 @@ package org.petehering.txtadv.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import org.petehering.txtadv.Command;
 import org.petehering.txtadv.Model;
 import org.petehering.txtadv.Recipe;
@@ -43,7 +44,7 @@ public class RecipeInfo implements Command
             if(!names.isEmpty())
             {
                 response.add("available recipes:");
-                
+
                 for(String name : names)
                 {
                     response.add("  " + name);
