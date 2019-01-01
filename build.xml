@@ -14,7 +14,7 @@
     <property name="test.resources" value="${basedir}/test/resources"/>
     <property name="test.source" value="${basedir}/test/sources"/>
     <property name="dungeon.jar" value="Dungeon.jar"/>
-    <property name="dungeon.main" value="org.petehering.dungeon.Main"/>
+    <property name="dungeon.main" value="org.petehering.dungeon.Start"/>
 
     <target name="prepare">
         <mkdir dir="${build}"/>
