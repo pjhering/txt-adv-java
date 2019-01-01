@@ -383,9 +383,13 @@
                 "description": "door"
             },
             "east":{
-                "destination":"1-A1",
+                "destination":"2-A1",
                 "description":"TODO:go to level two"
             }
+        },
+        "2-A1":{
+            "name":"next level",
+            "description":"with no where to go"
         }
     },
     "player": {
