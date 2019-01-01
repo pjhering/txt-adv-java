@@ -3,76 +3,76 @@
     "author":"Pete Hering",
     "preamble":"enter '!' for help",
     "commands":{
-        "org.petehering.txtadv.impl.Contents":{
+        "org.petehering.txtadv.core.Contents":{
             "contents":"",
             "HELP":"lists the content of a container"
         },
-        "org.petehering.txtadv.impl.Describe":{
+        "org.petehering.txtadv.core.Describe":{
             "describe":"?",
             "HELP":"describes an item in the current room or you inventory"
         },
-        "org.petehering.txtadv.impl.Drop":{
+        "org.petehering.txtadv.core.Drop":{
             "drop":"d",
             "HELP":"removes an item from your inventory and leaves it in the current room"
         },
-        "org.petehering.txtadv.impl.Go":{
+        "org.petehering.txtadv.core.Go":{
             "north":"n",
             "east":"e",
             "west":"w",
             "south":"s",
             "HELP":"moves you into the room in the specifed direction if possible"
         },
-        "org.petehering.txtadv.impl.Help":{
+        "org.petehering.txtadv.core.Help":{
             "help":"!",
             "HELP":"provides help for a one or more commands"
         },
-        "org.petehering.txtadv.impl.Inventory":{
+        "org.petehering.txtadv.core.Inventory":{
             "inventory":"i",
             "HELP":"prints a list of all items in your inventory"
         },
-        "org.petehering.txtadv.impl.Look":{
+        "org.petehering.txtadv.core.Look":{
             "look":"l",
             "HELP":"prints a description of the current room"
         },
-        "org.petehering.txtadv.impl.Make":{
+        "org.petehering.txtadv.core.Make":{
             "make":"m",
             "HELP":"makes a new item from items in your inventory"
         },
-        "org.petehering.txtadv.impl.PutIn":{
+        "org.petehering.txtadv.core.PutIn":{
             "put":"p",
             "HELP":"put item in container, removing it from your inventory"
         },
-        "org.petehering.txtadv.impl.QuestInfo":{
+        "org.petehering.txtadv.core.QuestInfo":{
             "quest":"",
             "HELP":"prints information about the current quest"
         },
-        "org.petehering.txtadv.impl.Quit":{
+        "org.petehering.txtadv.core.Quit":{
             "quit":"q",
             "HELP":"quits the game without saving it"
         },
-        "org.petehering.txtadv.impl.RecipeInfo":{
+        "org.petehering.txtadv.core.RecipeInfo":{
             "recipe":"",
             "HELP":"prints the ingredients for a specifed item"
         },
-        "org.petehering.txtadv.impl.RemoveFrom":{
+        "org.petehering.txtadv.core.RemoveFrom":{
             "remove":"r",
             "HELP":"remove item from container, placing it in your inventory"
         },
-        "org.petehering.txtadv.impl.Save":{
+        "org.petehering.txtadv.core.Save":{
             "save":"",
             "HELP":"saves the game to a specifed file"
         },
-        "org.petehering.txtadv.impl.Take":{
+        "org.petehering.txtadv.core.Take":{
             "take":"t",
             "HELP":"takes an item from the current room and puts it in your inventory"
         }
     },
     "quests":{
-        "org.petehering.txtadv.impl.Quest01":{
+        "org.petehering.txtadv.core.Quest01":{
             "name":"first quest",
             "description":"walk around and do stuff"
         },
-        "org.petehering.txtadv.impl.Quest02":{
+        "org.petehering.txtadv.core.Quest02":{
             "name":"second quest",
             "description":"walk around and do stuff"
         }
