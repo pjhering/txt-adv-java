@@ -1,4 +1,4 @@
-package org.petehering.txtadv.impl;
+package org.petehering.txtadv.core;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

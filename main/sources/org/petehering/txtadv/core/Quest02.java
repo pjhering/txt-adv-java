@@ -1,13 +1,13 @@
-package org.petehering.txtadv.impl;
+package org.petehering.txtadv.core;
 
 import org.petehering.txtadv.Model;
 import org.petehering.txtadv.Quest;
 
-public class Quest01 extends Quest
+public class Quest02 extends Quest
 {
-    public Quest01()
+    public Quest02()
     {
-        super("the first quest", "walk around and do stuff");
+        super("the second quest", "walk around and do stuff");
     }
 
     @Override
