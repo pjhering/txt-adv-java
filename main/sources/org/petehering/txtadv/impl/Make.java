@@ -94,7 +94,6 @@ public class Make implements Command
 
         if(foundAllIngredients)
         {
-            response.add("found all ingredients");
             List<Item> remove = new ArrayList<>();
 
             for(String name : ingredientsNameList)
@@ -106,7 +105,6 @@ public class Make implements Command
                         if(!remove.contains(item))
                         {
                             remove.add(item);
-                            response.add("using " + item.getName() + " to make " + recipeName);
                         }
                     }
                 }
