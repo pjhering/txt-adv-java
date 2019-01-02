@@ -40,11 +40,14 @@ public class Look implements Command
             }
         }
 
-        response.add("you see:");
 
-        for(String name : count.keySet())
+        if(!count.isEmpty())
         {
-            response.add("  " + count.get(name) + " " + name);
+            response.add("you see:");
+            for(String name : count.keySet())
+            {
+                response.add("  " + count.get(name) + " " + name);
+            }
         }
 
         door("north", r.getNorth(), model, response);
