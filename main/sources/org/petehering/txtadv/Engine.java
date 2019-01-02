@@ -37,11 +37,11 @@ public class Engine
 
                         if(quests.size() > 0)
                         {
-                            quests.get(0).update(model);
+                            quests.get(0).update(model, args, response);
 
                             if(quests.get(0).isComplete())
                             {
-                                response.add(quests.remove(0).getName() + " is complete");
+                                quests.remove(0);
                             }
                         }
                     }

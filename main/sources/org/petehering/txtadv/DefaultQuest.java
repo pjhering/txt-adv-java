@@ -1,5 +1,7 @@
 package org.petehering.txtadv;
 
+import java.util.List;
+
 /**
  * Use this Quest when you don't really want quests as part of your game.
  * It never completes and never modifies the model.
@@ -19,7 +21,7 @@ public class DefaultQuest extends Quest
         return false;
     }
 
-    public void update (Model model)
+    public void update (Model model, String[] args, List<String> response)
     {
         // do nothing
     }
