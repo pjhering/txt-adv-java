@@ -39,8 +39,8 @@
             "HELP": "makes a new item from items in your inventory"
         },
         "org.petehering.txtadv.core.PlayerInfo": {
-            "player":"",
-            "HELP":"prints information about yourself"
+            "player": "",
+            "HELP": "prints information about yourself"
         },
         "org.petehering.txtadv.core.PutIn": {
             "put": "p",
@@ -96,19 +96,21 @@
     "recipes": {},
     "rooms": {
         "1-A1": {
-            "name": "cell",
+            "name": "cell [A1]",
             "description": "A-1, is small, cold, and dirty",
             "south": {
                 "destination": "1-A2",
-                "description": "door"
+                "description": "door",
+                "closed": true
             }
         },
         "1-A2": {
-            "name": "hallway",
+            "name": "hallway [A2]",
             "description": "is poorly lit and narrow",
             "north": {
                 "destination": "1-A1",
-                "description": "door"
+                "description": "door",
+                "closed": true
             },
             "east": {
                 "destination": "1-B2",
@@ -116,19 +118,25 @@
             }
         },
         "1-A3": {
-            "name": "cell",
+            "name": "cell [A3]",
             "description": "is small, cold, and dirty",
             "south": {
                 "destination": "1-A4",
-                "description": "door"
+                "description": "door",
+                "closed": true,
+                "locked": true,
+                "keyId": "cell-key"
             }
         },
         "1-A4": {
-            "name": "hallway",
+            "name": "hallway [A4]",
             "description": "is poorly lit and narrow",
             "north": {
                 "destination": "1-A3",
-                "description": "door"
+                "description": "door",
+                "closed": true,
+                "locked": true,
+                "keyId": "cell-key"
             },
             "east": {
                 "destination": "1-B4",
@@ -136,31 +144,43 @@
             },
             "south": {
                 "destination": "1-A5",
-                "description": "door"
+                "description": "door",
+                "closed": true,
+                "locked": true,
+                "keyId": "cell-key"
             }
         },
         "1-A5": {
-            "name": "cell",
+            "name": "cell [A5]",
             "description": "is small, cold, and dirty",
             "north": {
                 "destination": "1-A4",
-                "description": "door"
+                "description": "door",
+                "closed": true,
+                "locked": true,
+                "keyId": "cell-key"
             }
         },
         "1-B1": {
-            "name": "cell",
+            "name": "cell [B1]",
             "description": "A-2, is small, cold, and dirty",
             "south": {
                 "destination": "1-B2",
-                "description": "door"
+                "description": "door",
+                "closed": true,
+                "locked": true,
+                "keyId": "cell-key"
             }
         },
         "1-B2": {
-            "name": "hallway",
+            "name": "hallway [B2]",
             "description": "is poorly lit and narrow",
             "north": {
                 "destination": "1-B1",
-                "description": "door"
+                "description": "door",
+                "closed": true,
+                "locked": true,
+                "keyId": "cell-key"
             },
             "west": {
                 "destination": "1-A2",
@@ -172,19 +192,25 @@
             }
         },
         "1-B3": {
-            "name": "cell",
+            "name": "cell [B3]",
             "description": "is small, cold, and dirty",
             "south": {
                 "destination": "1-B4",
-                "description": "door"
+                "description": "door",
+                "closed": true,
+                "locked": true,
+                "keyId": "cell-key"
             }
         },
         "1-B4": {
-            "name": "hallway",
+            "name": "hallway [B4]",
             "description": "is poorly lit and narrow",
             "north": {
                 "destination": "1-B3",
-                "description": "door"
+                "description": "door",
+                "closed": true,
+                "locked": true,
+                "keyId": "cell-key"
             },
             "west": {
                 "destination": "1-A4",
@@ -196,31 +222,43 @@
             },
             "south": {
                 "destination": "1-B5",
-                "description": "door"
+                "description": "door",
+                "closed": true,
+                "locked": true,
+                "keyId": "cell-key"
             }
         },
         "1-B5": {
-            "name": "cell",
+            "name": "cell [B5]",
             "description": "is small, cold, and dirty",
             "north": {
                 "destination": "1-B4",
-                "description": "door"
+                "description": "door",
+                "closed": true,
+                "locked": true,
+                "keyId": "cell-key"
             }
         },
         "1-C1": {
-            "name": "cell",
+            "name": "cell [C1]",
             "description": "A-3, is small, cold, and dirty",
             "south": {
                 "destination": "1-C2",
-                "description": "door"
+                "description": "door",
+                "closed": true,
+                "locked": true,
+                "keyId": "cell-key"
             }
         },
         "1-C2": {
-            "name": "hallway",
+            "name": "hallway [C2]",
             "description": "is poorly lit and narrow",
             "north": {
                 "destination": "1-C1",
-                "description": "door"
+                "description": "door",
+                "closed": true,
+                "locked": true,
+                "keyId": "cell-key"
             },
             "west": {
                 "destination": "1-B2",
@@ -236,7 +274,7 @@
             }
         },
         "1-C3": {
-            "name": "corridor",
+            "name": "corridor [C3]",
             "description": "is poorly lit",
             "north": {
                 "destination": "1-C2",
@@ -248,7 +286,7 @@
             }
         },
         "1-C4": {
-            "name": "hallway",
+            "name": "hallway [C4]",
             "description": "is small, cold, and dirty",
             "north": {
                 "destination": "1-C3",
@@ -264,31 +302,43 @@
             },
             "south": {
                 "destination": "1-C5",
-                "description": "door"
+                "description": "door",
+                "closed": true,
+                "locked": true,
+                "keyId": "cell-key"
             }
         },
         "1-C5": {
-            "name": "cell",
+            "name": "cell [C5]",
             "description": "is small, cold, and dirty",
             "north": {
                 "destination": "1-C4",
-                "description": "door"
+                "description": "door",
+                "closed": true,
+                "locked": true,
+                "keyId": "cell-key"
             }
         },
         "1-D1": {
-            "name": "cell",
+            "name": "cell [D1]",
             "description": "A-4, is small, cold, and dirty",
             "south": {
                 "destination": "1-D2",
-                "description": "door"
+                "description": "door",
+                "closed": true,
+                "locked": true,
+                "keyId": "cell-key"
             }
         },
         "1-D2": {
-            "name": "hallway",
+            "name": "hallway [D2]",
             "description": "is small, cold, and dirty",
             "north": {
                 "destination": "1-D1",
-                "description": "door"
+                "description": "door",
+                "closed": true,
+                "locked": true,
+                "keyId": "cell-key"
             },
             "west": {
                 "destination": "1-C2",
@@ -300,19 +350,25 @@
             },
             "south": {
                 "destination": "1-D3",
-                "description": "door"
+                "description": "door",
+                "closed": true,
+                "locked": true,
+                "keyId": "cell-key"
             }
         },
         "1-D3": {
-            "name": "cell",
+            "name": "cell [D3]",
             "description": "is small, cold, and dirty",
             "north": {
                 "destination": "1-D2",
-                "description": "door"
+                "description": "door",
+                "closed": true,
+                "locked": true,
+                "keyId": "cell-key"
             }
         },
         "1-D4": {
-            "name": "hallway",
+            "name": "hallway [D4]",
             "description": "is small, cold, and dirty",
             "west": {
                 "destination": "1-C4",
@@ -328,7 +384,7 @@
             }
         },
         "1-D5": {
-            "name": "office",
+            "name": "office [D5]",
             "description": "is clean, warm, and well lit",
             "contents": [
                 {
@@ -338,9 +394,9 @@
                     "contents": [
                         {
                             "name": "key",
-                            "description": "made of thick, black iron",
+                            "description": "made of heavy iron",
                             "properties": {
-                                "keyId": "cell"
+                                "keyId": "cell-key"
                             }
                         }
                     ]
@@ -364,7 +420,7 @@
             }
         },
         "1-E1": {
-            "name": "cell",
+            "name": "cell [E1]",
             "description": "A-5, is small, cold, and dirty",
             "contents": [
                 {
@@ -373,9 +429,9 @@
                     "contents": [
                         {
                             "name": "key",
-                            "description": "small, silver",
+                            "description": "tarnished brass",
                             "properties": {
-                                "keyId": "closet"
+                                "keyId": "closet-key"
                             }
                         }
                     ]
@@ -386,11 +442,11 @@
                 "description": "door",
                 "closed": true,
                 "locked": true,
-                "keyId": "cell"
+                "keyId": "cell-key"
             }
         },
         "1-E2": {
-            "name": "hallway",
+            "name": "hallway [E2]",
             "description": "is poorly lit and narrow",
             "north": {
                 "destination": "1-E1",
@@ -402,47 +458,486 @@
             },
             "south": {
                 "destination": "1-E3",
-                "description": "door"
+                "description": "door",
+                "closed": true,
+                "locked": true,
+                "keyId": "cell-key"
             }
         },
         "1-E3": {
-            "name": "cell",
+            "name": "cell [E3]",
             "description": "is small, cold, and dirty",
             "north": {
                 "destination": "1-E2",
-                "description": "door"
+                "description": "door",
+                "closed": true,
+                "locked": true,
+                "keyId": "cell-key"
             }
         },
         "1-E4": {
-            "name": "closet",
+            "name": "closet [E4]",
             "description": "is dark and smells like bleach",
+            "contents":[
+                {
+                    "name":"broom",
+                    "description":"a wide, black bristled shop broom"
+                },
+                {
+                    "name":"wire",
+                    "description":"a small spool of copper wire"
+                }
+            ],
             "west": {
                 "destination": "1-D4",
-                "description": "door"
+                "description": "door",
+                "closed":true,
+                "locked":true,
+                "keyId":"closet-key"
             }
         },
         "1-E5": {
-            "name": "stairwell",
+            "name": "stairwell [E5]",
             "description": "is dark and smells like smoke",
             "west": {
                 "destination": "1-D5",
                 "description": "door"
             },
-            "east": {
-                "destination": "2-A1",
-                "description": "TODO:go to level two"
+            "south": {
+                "destination": "2-E5",
+                "description": "door"
             }
         },
         "2-A1": {
-            "name": "next level",
-            "description": "with no where to go"
+            "name":"chamber [A1]",
+            "description":"empty",
+            "east":{
+                "description":"hole",
+                "destination":"2-A2"
+            },
+            "south":{
+                "description":"hole",
+                "destination":"2-B2"
+            }
+        },
+        "2-A2": {
+            "name":"chamber [A2]",
+            "description":"empty",
+            "west":{
+                "description":"hole",
+                "destination":"2-A1"
+            },
+            "east":{
+                "description":"hole",
+                "destination":"2-A3"
+            },
+            "south":{
+                "description":"hole",
+                "destination":"2-B2"
+            }
+        },
+        "2-A3": {
+            "name":"chamber [A3]",
+            "description":"empty",
+            "west":{
+                "description":"hole",
+                "destination":"2-A2"
+            },
+            "east":{
+                "description":"hole",
+                "destination":"2-A4"
+            },
+            "south":{
+                "description":"hole",
+                "destination":"2-B3"
+            }
+        },
+        "2-A4": {
+            "name":"chamber [A4]",
+            "description":"empty",
+            "west":{
+                "description":"hole",
+                "destination":"2-A3"
+            },
+            "east":{
+                "description":"hole",
+                "destination":"2-A5"
+            },
+            "south":{
+                "description":"hole",
+                "destination":"2-B4"
+            }
+        },
+        "2-A5": {
+            "name":"chamber [A5]",
+            "description":"empty",
+            "west":{
+                "description":"hole",
+                "destination":"2-A4"
+            },
+            "south":{
+                "description":"hole",
+                "destination":"2-B5"
+            }
+        },
+        "2-B1": {
+            "name":"chamber [B1]",
+            "description":"empty",
+            "north":{
+                "description":"hole",
+                "destination":"2-A1"
+            },
+            "east":{
+                "description":"hole",
+                "destination":"2-B2"
+            },
+            "south":{
+                "description":"hole",
+                "destination":"2-C1"
+            }
+        },
+        "2-B2": {
+            "name":"chamber [B2]",
+            "description":"empty",
+            "north":{
+                "description":"hole",
+                "destination":"2-A2"
+            },
+            "west":{
+                "description":"hole",
+                "destination":"2-B1"
+            },
+            "east":{
+                "description":"hole",
+                "destination":"2-B3"
+            },
+            "south":{
+                "description":"hole",
+                "destination":"2-C2"
+            }
+        },
+        "2-B3": {
+            "name":"chamber [B3]",
+            "description":"empty",
+            "north":{
+                "description":"hole",
+                "destination":"2-A3"
+            },
+            "west":{
+                "description":"hole",
+                "destination":"2-B2"
+            },
+            "east":{
+                "description":"hole",
+                "destination":"2-B4"
+            },
+            "south":{
+                "description":"hole",
+                "destination":"2-C3"
+            }
+        },
+        "2-B4": {
+            "name":"chamber [B4]",
+            "description":"empty",
+            "north":{
+                "description":"hole",
+                "destination":"2-A4"
+            },
+            "west":{
+                "description":"hole",
+                "destination":"2-B3"
+            },
+            "east":{
+                "description":"hole",
+                "destination":"2-B5"
+            },
+            "south":{
+                "description":"hole",
+                "destination":"2-C4"
+            }
+        },
+        "2-B5": {
+            "name":"chamber [B5]",
+            "description":"empty",
+            "north":{
+                "description":"hole",
+                "destination":"2-A5"
+            },
+            "west":{
+                "description":"hole",
+                "destination":"2-B4"
+            },
+            "south":{
+                "description":"hole",
+                "destination":"2-C5"
+            }
+        },
+        "2-C1": {
+            "name":"chamber [C1]",
+            "description":"empty",
+            "north":{
+                "description":"hole",
+                "destination":"2-B1"
+            },
+            "east":{
+                "description":"hole",
+                "destination":"2-C2"
+            },
+            "south":{
+                "description":"hole",
+                "destination":"2-D1"
+            }
+        },
+        "2-C2": {
+            "name":"chamber [C2]",
+            "description":"empty",
+            "north":{
+                "description":"hole",
+                "destination":"2-B2"
+            },
+            "west":{
+                "description":"hole",
+                "destination":"2-C1"
+            },
+            "east":{
+                "description":"hole",
+                "destination":"2-C3"
+            },
+            "south":{
+                "description":"hole",
+                "destination":"2-D2"
+            }
+        },
+        "2-C3": {
+            "name":"chamber [C3]",
+            "description":"empty",
+            "north":{
+                "description":"hole",
+                "destination":"2-B3"
+            },
+            "west":{
+                "description":"hole",
+                "destination":"2-C2"
+            },
+            "east":{
+                "description":"hole",
+                "destination":"2-C4"
+            },
+            "south":{
+                "description":"hole",
+                "destination":"2-D3"
+            }
+        },
+        "2-C4": {
+            "name":"chamber [C4]",
+            "description":"empty",
+            "north":{
+                "description":"hole",
+                "destination":"2-B4"
+            },
+            "west":{
+                "description":"hole",
+                "destination":"2-C3"
+            },
+            "east":{
+                "description":"hole",
+                "destination":"2-C5"
+            },
+            "south":{
+                "description":"hole",
+                "destination":"2-D4"
+            }
+        },
+        "2-C5": {
+            "name":"chamber [C5]",
+            "description":"empty",
+            "north":{
+                "description":"hole",
+                "destination":"2-B5"
+            },
+            "west":{
+                "description":"hole",
+                "destination":"2-C4"
+            },
+            "south":{
+                "description":"hole",
+                "destination":"2-D5"
+            }
+        },
+        "2-D1": {
+            "name":"chamber [D1]",
+            "description":"empty",
+            "north":{
+                "description":"hole",
+                "destination":"2-C1"
+            },
+            "east":{
+                "description":"hole",
+                "destination":"2-D2"
+            },
+            "south":{
+                "description":"hole",
+                "destination":"2-E1"
+            }
+        },
+        "2-D2": {
+            "name":"chamber [D2]",
+            "description":"empty",
+            "north":{
+                "description":"hole",
+                "destination":"2-C2"
+            },
+            "west":{
+                "description":"hole",
+                "destination":"2-D1"
+            },
+            "east":{
+                "description":"hole",
+                "destination":"2-D3"
+            },
+            "south":{
+                "description":"hole",
+                "destination":"2-E2"
+            }
+        },
+        "2-D3": {
+            "name":"chamber [D3]",
+            "description":"empty",
+            "north":{
+                "description":"hole",
+                "destination":"2-C3"
+            },
+            "west":{
+                "description":"hole",
+                "destination":"2-D2"
+            },
+            "east":{
+                "description":"hole",
+                "destination":"2-D4"
+            },
+            "south":{
+                "description":"hole",
+                "destination":"2-E3"
+            }
+        },
+        "2-D4": {
+            "name":"chamber [D4]",
+            "description":"empty",
+            "north":{
+                "description":"hole",
+                "destination":"2-C4"
+            },
+            "west":{
+                "description":"hole",
+                "destination":"2-D3"
+            },
+            "east":{
+                "description":"hole",
+                "destination":"2-D5"
+            },
+            "south":{
+                "description":"hole",
+                "destination":"2-E4"
+            }
+        },
+        "2-D5": {
+            "name":"chamber [D5]",
+            "description":"empty",
+            "north":{
+                "description":"hole",
+                "destination":"2-C5"
+            },
+            "west":{
+                "description":"hole",
+                "destination":"2-D4"
+            },
+            "south":{
+                "description":"hole",
+                "destination":"2-E5"
+            }
+        },
+        "2-E1":{
+            "description":"chamber [E1]",
+            "description":"empty",
+            "north":{
+                "description":"hole",
+                "destination":"2-D1"
+            },
+            "east":{
+                "description":"hole",
+                "destination":"2-E2"
+            }
+        },
+        "2-E2":{
+            "description":"chamber [E2]",
+            "description":"empty",
+            "north":{
+                "description":"hole",
+                "destination":"2-D2"
+            },
+            "west":{
+                "description":"hole",
+                "destination":"2-E1"
+            },
+            "east":{
+                "description":"hole",
+                "destination":"2-E3"
+            }
+        },
+        "2-E3":{
+            "description":"chamber [E3]",
+            "description":"empty",
+            "north":{
+                "description":"hole",
+                "destination":"2-D3"
+            },
+            "west":{
+                "description":"hole",
+                "destination":"2-E2"
+            },
+            "east":{
+                "description":"hole",
+                "destination":"2-E4"
+            }
+        },
+        "2-E4":{
+            "description":"chamber [E4]",
+            "description":"empty",
+            "north":{
+                "description":"hole",
+                "destination":"2-D4"
+            },
+            "west":{
+                "description":"hole",
+                "destination":"2-E3"
+            },
+            "east":{
+                "description":"hole",
+                "destination":"2-E5"
+            }
+        },
+        "2-E5": {
+            "name": "stairwell [E5]",
+            "description": "with no where to go",
+            "north":{
+                "description":"hole",
+                "destination":"2-D5"
+            },
+            "west":{
+                "description":"hole",
+                "destination":"2-E4"
+            },
+            "south":{
+                "description":"door",
+                "destination":"1-E5"
+            }
         }
     },
     "player": {
         "location": "1-A1",
         "properties": {
-            "mood":"apprehensive",
-            "energy":"high"
+            "mood": "apprehensive",
+            "energy": "high"
         },
         "inventory": []
     }
