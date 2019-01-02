@@ -1,12 +1,13 @@
 package org.petehering.dungeon;
 
+import java.util.List;
 import org.petehering.txtadv.Model;
 import org.petehering.txtadv.Quest;
 
 public class Quest5 extends Quest
 {
     @Override
-    public void update(Model model)
+    public void update(Model model, String[] args, List<String> response)
     {
     }
 
