@@ -18,7 +18,7 @@ public abstract class Quest
 
     public abstract boolean isComplete ();
 
-    public abstract void update (Model model);
+    public abstract void update (Model model, String[] args, List<String> response);
 
     public void setName (String value)
     {
