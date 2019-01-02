@@ -38,6 +38,10 @@
             "make": "m",
             "HELP": "makes a new item from items in your inventory"
         },
+        "org.petehering.txtadv.core.PlayerInfo": {
+            "player":"",
+            "HELP":"prints information about yourself"
+        },
         "org.petehering.txtadv.core.PutIn": {
             "put": "p",
             "HELP": "put item in container, removing it from your inventory"
@@ -436,7 +440,10 @@
     },
     "player": {
         "location": "1-A1",
-        "properties": {},
+        "properties": {
+            "mood":"apprehensive",
+            "energy":"high"
+        },
         "inventory": []
     }
 }

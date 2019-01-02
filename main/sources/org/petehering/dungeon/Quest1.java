@@ -14,6 +14,11 @@ public class Quest1 extends Quest
     {
         Player p = model.getPlayer();
         complete = p.getLocation().equals("2-A1");
+
+        if(complete)
+        {
+            response.add("you've completed " + getName());
+        }
     }
 
     @Override
